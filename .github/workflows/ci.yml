@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  flake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+      - uses: DeterminateSystems/nix-installer-action@d96bc962e61b3049ce8128d03d57a1144fa96539
+      - name: Flake check
+        run: nix flake check --no-build
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+      - uses: DeterminateSystems/nix-installer-action@d96bc962e61b3049ce8128d03d57a1144fa96539
+
+      - name: Build ripgrep
+        run: nix build .#default --no-link
+        timeout-minutes: 30
+
+      - name: Verify binary exists and runs
+        run: |
+          set -euo pipefail
+          nix build .#default
+          test -x result/bin/rg || { echo "::error::rg binary missing or not executable"; exit 1; }
+          result/bin/rg --version || { echo "::error::rg --version failed"; exit 1; }

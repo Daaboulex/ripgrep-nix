@@ -36,7 +36,7 @@ rustPlatform.buildRustPackage {
   meta = with lib; {
     description = "Fast line-oriented search tool (grep replacement)";
     homepage = "https://github.com/BurntSushi/ripgrep";
-    changelog = "https://github.com/BurntSushi/ripgrep/blob/${version}/CHANGELOG.md";
+    changelog = "https://github.com/BurntSushi/ripgrep/releases/tag/${version}";
     license = with licenses; [
       unlicense
       mit

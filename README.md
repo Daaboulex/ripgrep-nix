@@ -1,11 +1,19 @@
 # ripgrep (Nix)
 
-Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
+Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
 
 ![Rust](https://img.shields.io/badge/Rust-2021-blue)
 ![License](https://img.shields.io/badge/License-Unlicense%20%2F%20MIT-green)
 ![Version 15.1.0](https://img.shields.io/badge/Version-15.1.0-orange)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-yellow)
+
+## Upstream
+
+This is a **Nix packaging wrapper** — not the original project. All credit for ripgrep goes to:
+
+- **Author**: [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi)
+- **Repository**: [github.com/BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+- **License**: [Unlicense / MIT](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) (dual-licensed)
 
 ## What Is This?
 
@@ -76,4 +84,6 @@ This repository uses automated daily checks via GitHub Actions to detect new ups
 
 ## License
 
-This packaging flake is provided as-is. The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project is dual-licensed under Unlicense and MIT.
+This Nix packaging flake is provided as-is and carries no additional license terms.
+
+The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project by [Andrew Gallant](https://github.com/BurntSushi) is dual-licensed under the **Unlicense** and the **MIT License**. See the [upstream UNLICENSE](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) and [upstream LICENSE-MIT](https://github.com/BurntSushi/ripgrep/blob/master/LICENSE-MIT) files for full terms.

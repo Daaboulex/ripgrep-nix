@@ -15,7 +15,7 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { localSystem.system = system; };
       in
       {
         packages.default = pkgs.callPackage ./package.nix { };

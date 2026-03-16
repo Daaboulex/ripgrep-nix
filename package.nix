@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage {
   postInstall = ''
     installManPage $releaseDir/build/ripgrep-*/out/rg.1
     installShellCompletion $releaseDir/build/ripgrep-*/out/rg.{bash,fish}
-    installShellCompletion --zsh complete/_rg
+    installShellCompletion --zsh $releaseDir/build/ripgrep-*/out/_rg
   '';
 
   meta = with lib; {

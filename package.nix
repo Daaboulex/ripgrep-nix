@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-0gjwYMUlXYnmIWQS1SVzF1yQw1lpveRLw5qp049lc3I=";
   };
 
-  cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  cargoHash = "sha256-ry3pLuYNwX776Dpj9IE2+uc7eEa5+sQvdNNeG1eJecs=";
 
   nativeBuildInputs = [
     asciidoctor

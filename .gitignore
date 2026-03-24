@@ -2,3 +2,5 @@ result
 .direnv
 AI-progress.json
 AI-tasks.json
+result-*
+.envrc

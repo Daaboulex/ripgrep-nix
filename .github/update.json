@@ -1,0 +1,17 @@
+{
+  "package": "ripgrep",
+  "upstream": {
+    "type": "github-release",
+    "owner": "BurntSushi",
+    "repo": "ripgrep"
+  },
+  "packageFile": "package.nix",
+  "hashes": [
+    "hash",
+    "cargoHash"
+  ],
+  "verify": {
+    "binary": "rg",
+    "args": "--version"
+  }
+}

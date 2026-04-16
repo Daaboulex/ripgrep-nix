@@ -1,5 +1,7 @@
 # ripgrep (Nix)
 
+[![CI](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml/badge.svg)](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml)
+
 Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
 
 ![Rust](https://img.shields.io/badge/Rust-2021-blue)

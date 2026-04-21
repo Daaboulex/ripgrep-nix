@@ -39,7 +39,7 @@
         ripgrep-nix = self.packages.${final.system}.default;
       };
 
-      formatter = forAllSystems ({ pkgs, ... }: pkgs.nixfmt-rfc-style);
+      formatter = forAllSystems ({ pkgs, ... }: pkgs.nixfmt);
 
       checks = forAllSystems (
         { system, ... }:

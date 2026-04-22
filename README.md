@@ -24,7 +24,11 @@ This is a **Nix packaging wrapper** — not the original project. All credit for
 
 ## What Is This?
 
-A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source with Level C security:
+A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source with Level C security.
+
+> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. This repo exists as the **exemplar / reference template** for the _Daaboulex Nix Packaging Standard v1_ — not because nixpkgs is insufficient. If you want ripgrep in a NixOS config and you are not maintaining a satellite flake that tracks this standard, prefer `pkgs.ripgrep` from nixpkgs. Use this flake when you want the full CI + update-contract + stale-branch-cleanup workflow as a starting point for packaging something that **is not** in nixpkgs.
+
+Security-focused build provenance:
 
 - **Package integrity** — SRI hashes for source and cargo dependencies, verified on every build
 - **CI security** — pinned GitHub Actions (full SHA, not tags), minimal permissions, build-gated PRs

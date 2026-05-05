@@ -56,6 +56,29 @@ nixpkgs.overlays = [ inputs.ripgrep.overlays.default ];
 ```
 <!-- END generated:installation -->
 
+## Usage
+
+Search recursively for a pattern:
+
+```bash
+rg "pattern" .                    # search current directory
+rg -i "todo" --type rust          # case-insensitive, Rust files only
+rg -l "import" src/               # list matching filenames only
+rg --json "error" | jq            # structured JSON output
+rg -C 3 "panic" --glob "*.rs"    # 3 lines of context, glob filter
+```
+
+### Common flags
+
+| Flag | Description |
+|------|-------------|
+| `-i` | Case-insensitive |
+| `-w` | Match whole words |
+| `-l` | List files only |
+| `-c` | Count matches |
+| `-t <type>` | Filter by file type |
+| `--hidden` | Include hidden files |
+| `-g <glob>` | Include/exclude by glob |
 ## Development
 
 ```bash

@@ -1,11 +1,9 @@
 # ripgrep (Nix)
 
-[![CI](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml/badge.svg)](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/Daaboulex/ripgrep-nix)](./LICENSE)
-[![NixOS](https://img.shields.io/badge/NixOS-unstable-78C0E8?logo=nixos&logoColor=white)](https://nixos.org)
-[![Last commit](https://img.shields.io/github/last-commit/Daaboulex/ripgrep-nix)](https://github.com/Daaboulex/ripgrep-nix/commits)
-[![Stars](https://img.shields.io/github/stars/Daaboulex/ripgrep-nix?style=flat)](https://github.com/Daaboulex/ripgrep-nix/stargazers)
-[![Issues](https://img.shields.io/github/issues/Daaboulex/ripgrep-nix)](https://github.com/Daaboulex/ripgrep-nix/issues)
+<!-- BEGIN generated:badges -->
+[![NixOS unstable](https://img.shields.io/badge/NixOS-unstable-78C0E8?logo=nixos&logoColor=white)](https://nixos.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+<!-- END generated:badges -->
 
 Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
 
@@ -14,13 +12,15 @@ Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [And
 ![Version 15.1.0](https://img.shields.io/badge/Version-15.1.0-orange)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-yellow)
 
+<!-- BEGIN generated:upstream -->
 ## Upstream
 
-This is a **Nix packaging wrapper** — not the original project. All credit for ripgrep goes to:
-
-- **Author**: [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi)
-- **Repository**: [github.com/BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
-- **License**: [Unlicense / MIT](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) (dual-licensed)
+| | |
+|---|---|
+| **Project** | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
+| **License** | Unlicense/MIT |
+| **Tracked** | GitHub releases |
+<!-- END generated:upstream -->
 
 ## What Is This?
 
@@ -35,6 +35,7 @@ Security-focused build provenance:
 - **Upstream trust** — daily automated version detection, hash recomputation, and test build before PR creation
 - **Stale cleanup** — auto-close update PRs open >14 days, delete orphaned branches
 
+<!-- BEGIN generated:installation -->
 ## Installation
 
 ### NixOS (Flake)
@@ -74,6 +75,8 @@ nix run github:Daaboulex/ripgrep-nix
 nix profile install github:Daaboulex/ripgrep-nix
 ```
 
+<!-- END generated:installation -->
+
 ## Development
 
 ```bash
@@ -98,3 +101,9 @@ This repository uses automated daily checks via GitHub Actions to detect new ups
 This Nix packaging flake is provided as-is and carries no additional license terms.
 
 The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project by [Andrew Gallant](https://github.com/BurntSushi) is dual-licensed under the **Unlicense** and the **MIT License**. See the [upstream UNLICENSE](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) and [upstream LICENSE-MIT](https://github.com/BurntSushi/ripgrep/blob/master/LICENSE-MIT) files for full terms.
+
+<!-- BEGIN generated:footer -->
+---
+
+*Maintained as part of the [Daaboulex](https://github.com/Daaboulex) NixOS ecosystem.*
+<!-- END generated:footer -->

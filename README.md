@@ -38,43 +38,22 @@ Security-focused build provenance:
 <!-- BEGIN generated:installation -->
 ## Installation
 
-### NixOS (Flake)
-
-Add as a flake input and use the overlay:
+Add as a flake input:
 
 ```nix
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    ripgrep-nix = {
-      url = "github:Daaboulex/ripgrep-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { nixpkgs, ripgrep-nix, ... }: {
-    nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
-      modules = [{
-        nixpkgs.overlays = [ ripgrep-nix.overlays.default ];
-        environment.systemPackages = [ pkgs.ripgrep-nix ];
-      }];
-    };
+  inputs.ripgrep = {
+    url = "github:Daaboulex/ripgrep-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 }
 ```
 
-### Direct Run
+Then add the overlay:
 
-```bash
-nix run github:Daaboulex/ripgrep-nix
+```nix
+nixpkgs.overlays = [ inputs.ripgrep.overlays.default ];
 ```
-
-### Profile Install
-
-```bash
-nix profile install github:Daaboulex/ripgrep-nix
-```
-
 <!-- END generated:installation -->
 
 ## Development

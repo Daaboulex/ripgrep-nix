@@ -1,16 +1,12 @@
 # ripgrep (Nix)
 
 <!-- BEGIN generated:badges -->
+[![CI](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml/badge.svg)](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml)
 [![NixOS unstable](https://img.shields.io/badge/NixOS-unstable-78C0E8?logo=nixos&logoColor=white)](https://nixos.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 <!-- END generated:badges -->
 
 Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
-
-![Rust](https://img.shields.io/badge/Rust-2021-blue)
-![License](https://img.shields.io/badge/License-Unlicense%20%2F%20MIT-green)
-![Version 15.1.0](https://img.shields.io/badge/Version-15.1.0-orange)
-![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-yellow)
 
 <!-- BEGIN generated:upstream -->
 ## Upstream

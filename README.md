@@ -16,20 +16,21 @@ Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [And
 | **Project** | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
 | **License** | Unlicense/MIT |
 | **Tracked** | GitHub releases |
+
 <!-- END generated:upstream -->
 
 ## What Is This?
 
 A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source with Level C security.
 
-> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. This repo exists as the **exemplar / reference template** for the _Daaboulex Nix Packaging Standard v1_ — not because nixpkgs is insufficient. If you want ripgrep in a NixOS config and you are not maintaining a satellite flake that tracks this standard, prefer `pkgs.ripgrep` from nixpkgs. Use this flake when you want the full CI + update-contract + stale-branch-cleanup workflow as a starting point for packaging something that **is not** in nixpkgs.
+> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. This repo exists as the **exemplar / reference template** for the *Daaboulex Nix Packaging Standard v1* — not because nixpkgs is insufficient. If you want ripgrep in a NixOS config and you are not maintaining a satellite flake that tracks this standard, prefer `pkgs.ripgrep` from nixpkgs. Use this flake when you want the full CI + update-contract + stale-branch-cleanup workflow as a starting point for packaging something that **is not** in nixpkgs.
 
 Security-focused build provenance:
 
 - **Package integrity** — SRI hashes for source and cargo dependencies, verified on every build
 - **CI security** — pinned GitHub Actions (full SHA, not tags), minimal permissions, build-gated PRs
-- **Upstream trust** — daily automated version detection, hash recomputation, and test build before PR creation
-- **Stale cleanup** — auto-close update PRs open >14 days, delete orphaned branches
+- **Upstream trust** — daily automated version detection, hash recomputation, and a verified test build, auto-committed to `main`
+- **Stale cleanup** — weekly `flake.lock` refresh (pushed only if it still builds); orphaned update branches older than 30 days are deleted
 
 <!-- BEGIN generated:installation -->
 ## Installation
@@ -50,6 +51,7 @@ Then add the overlay:
 ```nix
 nixpkgs.overlays = [ inputs.ripgrep.overlays.default ];
 ```
+
 <!-- END generated:installation -->
 
 ## Usage
@@ -75,6 +77,7 @@ rg -C 3 "panic" --glob "*.rs"    # 3 lines of context, glob filter
 | `-t <type>` | Filter by file type |
 | `--hidden` | Include hidden files |
 | `-g <glob>` | Include/exclude by glob |
+
 ## Development
 
 ```bash
@@ -90,9 +93,11 @@ This repository uses automated daily checks via GitHub Actions to detect new ups
 
 1. Source hash is recomputed from the release tarball
 2. Cargo dependency hash is recomputed via build error extraction
-3. Flake validation and test build must pass
-4. A pull request is created with full verification checklist
-5. Stale PRs (>14 days) are auto-closed; orphaned branches are deleted
+3. The flake is evaluated and the package is built and verified (`rg --version`)
+4. On success, the bump is committed and pushed to `main`
+5. On failure, an `update-failed` issue is opened with the build log and a recovery branch
+
+Weekly maintenance refreshes `flake.lock` (pushing only if the result still builds) and deletes orphaned update branches older than 30 days.
 
 ## License
 

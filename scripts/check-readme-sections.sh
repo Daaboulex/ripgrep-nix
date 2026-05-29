@@ -29,5 +29,5 @@ fi
 
 [ "$errors" -eq 0 ] && exit 0
 echo ""
-echo "Fix: run 'bash .ai-context/repo-standard/sync.sh $(basename "$PWD")' from the main nix repo"
+echo "Fix: add the missing generated:* marker(s) to README.md (structure governed by github:Daaboulex/nix-packaging-standard)."
 exit 1

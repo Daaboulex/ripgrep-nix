@@ -13,5 +13,14 @@
   "verify": {
     "binary": "rg",
     "args": "--version"
-  }
+  },
+  "description": "ripgrep packaged for NixOS — fast recursive grep replacement, built from source",
+  "topics": [
+    "flake",
+    "grep",
+    "nix",
+    "nixos",
+    "ripgrep",
+    "rust"
+  ]
 }

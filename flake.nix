@@ -39,7 +39,7 @@
         };
 
       flake.overlays.default = final: _prev: {
-        ripgrep-nix = inputs.self.packages.${final.system}.default;
+        ripgrep-nix = inputs.self.packages.${final.stdenv.hostPlatform.system}.default;
       };
     };
 }

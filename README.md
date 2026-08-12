@@ -101,7 +101,7 @@ Weekly maintenance refreshes `flake.lock` (pushing only if the result still buil
 
 ## License
 
-This Nix packaging flake is provided as-is and carries no additional license terms.
+This packaging flake is [MIT](./LICENSE) licensed. Upstream [ripgrep](https://github.com/BurntSushi/ripgrep) is dual Unlicense/MIT.
 
 The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project by [Andrew Gallant](https://github.com/BurntSushi) is dual-licensed under the **Unlicense** and the **MIT License**. See the [upstream UNLICENSE](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) and [upstream LICENSE-MIT](https://github.com/BurntSushi/ripgrep/blob/master/LICENSE-MIT) files for full terms.
 

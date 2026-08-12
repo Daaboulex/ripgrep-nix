@@ -106,7 +106,4 @@ This Nix packaging flake is provided as-is and carries no additional license ter
 The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project by [Andrew Gallant](https://github.com/BurntSushi) is dual-licensed under the **Unlicense** and the **MIT License**. See the [upstream UNLICENSE](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) and [upstream LICENSE-MIT](https://github.com/BurntSushi/ripgrep/blob/master/LICENSE-MIT) files for full terms.
 
 <!-- BEGIN generated:footer -->
----
-
-*Maintained as part of the [Daaboulex](https://github.com/Daaboulex) NixOS ecosystem.*
 <!-- END generated:footer -->

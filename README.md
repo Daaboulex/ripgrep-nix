@@ -1,32 +1,23 @@
 # ripgrep (Nix)
 
-<!-- BEGIN generated:badges -->
-[![CI](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml/badge.svg)](https://github.com/Daaboulex/ripgrep-nix/actions/workflows/ci.yml)
-[![NixOS unstable](https://img.shields.io/badge/NixOS-unstable-78C0E8?logo=nixos&logoColor=white)](https://nixos.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-<!-- END generated:badges -->
+A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from
+source. ripgrep, by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi),
+is a fast line-oriented search tool that recursively searches directories for a
+regex pattern.
 
-Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [Andrew Gallant (BurntSushi)](https://github.com/BurntSushi) — a fast line-oriented search tool that recursively searches directories for a regex pattern.
+`nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2
+enabled. If you want ripgrep in a NixOS config, prefer `pkgs.ripgrep` from
+nixpkgs.
 
-<!-- BEGIN generated:upstream -->
-## Upstream
+The flake declares two systems, `x86_64-linux` and `aarch64-linux`. The only
+test of the built program is that `rg --version` runs. Nothing here tests a
+search.
 
-| | |
-|---|---|
-| **Project** | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
-| **License** | Unlicense/MIT |
-| **Tracked** | GitHub releases |
+## What you get
 
-<!-- END generated:upstream -->
+The `rg` program, its man page, and shell completions for bash, fish and zsh.
 
-## What Is This?
-
-A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source.
-
-> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. If you want ripgrep in a NixOS config, prefer `pkgs.ripgrep` from nixpkgs. This flake is built on the [Nix Packaging Standard](https://github.com/Daaboulex/nix-packaging-standard).
-
-<!-- BEGIN generated:installation -->
-## Installation
+## Install
 
 Add as a flake input:
 
@@ -39,13 +30,18 @@ Add as a flake input:
 }
 ```
 
-Then add the overlay:
+Then add the overlay and install the package:
 
 ```nix
-nixpkgs.overlays = [ inputs.ripgrep.overlays.default ];
+{
+  nixpkgs.overlays = [ inputs.ripgrep.overlays.default ];
+  environment.systemPackages = [ pkgs.ripgrep-nix ];
+}
 ```
 
-<!-- END generated:installation -->
+The overlay adds the package as `pkgs.ripgrep-nix` and leaves `pkgs.ripgrep`
+as it is. Without the overlay the same package is
+`inputs.ripgrep.packages.<system>.default`.
 
 ## Usage
 
@@ -56,10 +52,10 @@ rg "pattern" .                    # search current directory
 rg -i "todo" --type rust          # case-insensitive, Rust files only
 rg -l "import" src/               # list matching filenames only
 rg --json "error" | jq            # structured JSON output
-rg -C 3 "panic" --glob "*.rs"    # 3 lines of context, glob filter
+rg -C 3 "panic" --glob "*.rs"     # 3 lines of context, glob filter
 ```
 
-### Common flags
+Common flags:
 
 | Flag | Description |
 |------|-------------|
@@ -71,20 +67,18 @@ rg -C 3 "panic" --glob "*.rs"    # 3 lines of context, glob filter
 | `--hidden` | Include hidden files |
 | `-g <glob>` | Include/exclude by glob |
 
-## Development
+## Known limits
 
-```bash
-git clone https://github.com/Daaboulex/ripgrep-nix
-cd ripgrep-nix
-nix build
-./result/bin/rg --version
-```
+- This build does not turn on PCRE2. The nixpkgs package does.
+- No system other than the two above is declared.
+
+## More
+
+- [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md): building from a clone, the check,
+  how the upstream version is tracked
 
 ## License
 
 This packaging flake is [MIT](./LICENSE) licensed. Upstream [ripgrep](https://github.com/BurntSushi/ripgrep) is dual Unlicense/MIT.
 
 The upstream [ripgrep](https://github.com/BurntSushi/ripgrep) project by [Andrew Gallant](https://github.com/BurntSushi) is dual-licensed under the **Unlicense** and the **MIT License**. See the [upstream UNLICENSE](https://github.com/BurntSushi/ripgrep/blob/master/UNLICENSE) and [upstream LICENSE-MIT](https://github.com/BurntSushi/ripgrep/blob/master/LICENSE-MIT) files for full terms.
-
-<!-- BEGIN generated:footer -->
-<!-- END generated:footer -->

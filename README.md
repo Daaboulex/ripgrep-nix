@@ -21,16 +21,9 @@ Nix flake packaging for [ripgrep](https://github.com/BurntSushi/ripgrep) by [And
 
 ## What Is This?
 
-A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source with Level C security.
+A Nix flake that builds [ripgrep](https://github.com/BurntSushi/ripgrep) from source.
 
-> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. This repo exists as the **exemplar / reference template** for the *Daaboulex Nix Packaging Standard v1* — not because nixpkgs is insufficient. If you want ripgrep in a NixOS config and you are not maintaining a satellite flake that tracks this standard, prefer `pkgs.ripgrep` from nixpkgs. Use this flake when you want the full CI + update-contract + stale-branch-cleanup workflow as a starting point for packaging something that **is not** in nixpkgs.
-
-Security-focused build provenance:
-
-- **Package integrity** — SRI hashes for source and cargo dependencies, verified on every build
-- **CI security** — pinned GitHub Actions (full SHA, not tags), minimal permissions, build-gated PRs
-- **Upstream trust** — daily automated version detection, hash recomputation, and a verified test build, auto-committed to `main`
-- **Stale cleanup** — weekly `flake.lock` refresh (pushed only if it still builds); orphaned update branches older than 30 days are deleted
+> **Note:** `nixpkgs` already ships `pkgs.ripgrep` at the same upstream version with PCRE2 enabled. If you want ripgrep in a NixOS config, prefer `pkgs.ripgrep` from nixpkgs. This flake is built on the [Nix Packaging Standard](https://github.com/Daaboulex/nix-packaging-standard).
 
 <!-- BEGIN generated:installation -->
 ## Installation
@@ -86,18 +79,6 @@ cd ripgrep-nix
 nix build
 ./result/bin/rg --version
 ```
-
-## Updates
-
-This repository uses automated daily checks via GitHub Actions to detect new upstream releases. When a new version is found:
-
-1. Source hash is recomputed from the release tarball
-2. Cargo dependency hash is recomputed via build error extraction
-3. The flake is evaluated and the package is built and verified (`rg --version`)
-4. On success, the bump is committed and pushed to `main`
-5. On failure, an `update-failed` issue is opened with the build log and a recovery branch
-
-Weekly maintenance refreshes `flake.lock` (pushing only if the result still builds) and deletes orphaned update branches older than 30 days.
 
 ## License
 

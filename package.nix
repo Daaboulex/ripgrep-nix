@@ -4,6 +4,7 @@
   fetchFromGitHub,
   asciidoctor,
   installShellFiles,
+  pcre2,
 }:
 
 let
@@ -26,6 +27,10 @@ rustPlatform.buildRustPackage {
     asciidoctor
     installShellFiles
   ];
+
+  buildInputs = [ pcre2 ];
+
+  buildFeatures = [ "pcre2" ];
 
   postInstall = ''
     installManPage $releaseDir/build/ripgrep-*/out/rg.1

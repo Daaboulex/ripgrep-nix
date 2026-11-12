@@ -34,6 +34,10 @@
           # nix flake check / nix-fast-build) — no bespoke CI verify step.
           checks.smoke = pkgs.runCommand "ripgrep-smoke" { } ''
             ${self'.packages.default}/bin/rg --version
+            if ! ${self'.packages.default}/bin/rg --pcre2-version; then
+              echo "rg was built without PCRE2, so -P does not work"
+              exit 1
+            fi
             touch "$out"
           '';
         };

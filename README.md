@@ -10,8 +10,8 @@ enabled. If you want ripgrep in a NixOS config, prefer `pkgs.ripgrep` from
 nixpkgs.
 
 The flake declares two systems, `x86_64-linux` and `aarch64-linux`. The only
-test of the built program is that `rg --version` runs. Nothing here tests a
-search.
+test of the built program is that `rg --version` runs and that it was built
+with PCRE2. Nothing here tests a search.
 
 ## What you get
 
@@ -69,7 +69,6 @@ Common flags:
 
 ## Known limits
 
-- This build does not turn on PCRE2. The nixpkgs package does.
 - No system other than the two above is declared.
 
 ## More

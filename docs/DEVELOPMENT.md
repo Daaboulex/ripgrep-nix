@@ -13,8 +13,9 @@ whose base module `flake.nix` imports.
 
 ## Checks
 
-`flake.nix` declares one check of its own, `smoke`. It runs `rg --version` from
-the built package, and `nix flake check` builds it.
+`flake.nix` declares one check of its own, `smoke`. It runs `rg --version` and
+`rg --pcre2-version` from the built package, so a build without PCRE2 fails,
+and `nix flake check` builds it.
 
 The CI workflow is [.github/workflows/ci.yml](../.github/workflows/ci.yml).
 
